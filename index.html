@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+    
+</head>
+
+<body>
+    <div class="dayNight" role="button" aria-label="Toggle Dark Mode">
+        <ion-icon name="moon-outline"></ion-icon>
+        <ion-icon name="sunny-outline"></ion-icon>
+    </div>
+    
+    <header class="header">
+        <a href="#" class="logo">Portfolio</a>
+        <nav class="navbar">
+            <a href="#" style="--i:1" class="active">Home</a>
+            <a href="#about" style="--i:2">About</a>
+            <a href="#skills" style="--i:3">Skills</a>
+            <a href="#portfolio" style="--i:4">Projects</a>
+            <a href="#contact" style="--i:5">Contact</a>
+        </nav>
+    </header>
+
+    <section class="home">
+        <div class="home-content">
+            <h3>Hello, It's Me</h3>
+            <h1>Ankit Pant</h1>
+            <h3>And I'm a <span class="text"></span></h3> <br>
+            <p>I'm a fresher web developer.<br>Expertise in Website Design, Frontend Development, and Backend Development.</p><br><br>
+            <div class="home-sci">
+                <a href="https://www.facebook.com/ankit.pant.927980" style="--i:7"><i class='bx bxl-facebook'></i></a>
+                <a href="https://www.instagram.com/_ankiiiittttt?igsh=MWtmNXk4ZXplemg4cA==" style="--i:8"><i class='bx bxl-instagram'></i></a>
+                <a href="https://www.linkedin.com/in/ankitpant7" style="--i:9"><i class='bx bxl-linkedin'></i></a>
+                <a href="https://github.com/Ankit-0712" style="--i:10"><i class='bx bxl-github'></i></a>
+                <br><br>
+            </div><br>
+            <a href="#about" class="btn-box">More About Me</a>
+        </div>
+        <div class="home-image">
+            <img src="profile.jpg" alt="Image">
+        </div>
+    </section>
+
+    <section class="about" id="about">
+        <div class="about-text">
+            <h2 class="about-heading">About <span>Me</span></h2>
+            <div class="about-info">
+                <p>Hi there! I'm Ankit Pant, a passionate web developer dedicated to creating beautiful and functional websites. With a keen eye for design and a knack for problem-solving, I strive to deliver exceptional digital experiences that leave a lasting impression.</p>
+                <p>My journey in web development began with a curiosity to explore the limitless possibilities of the internet. Over time, I've honed my skills in both frontend and backend development, mastering technologies such as HTML, CSS, JavaScript, and React.</p>
+                <p>I'm excited about the opportunity to leverage my skills and expertise to contribute to innovative projects and make a meaningful impact in the world of web development.</p>
+                <a href="AnkitPantResume (1).pdf" class="download-cv" download>Download CV</a>
+            </div>
+        </div>
+    </section>
+    
+
+    <section class="skills" id="skills">
+        <h2 class="sub-title">My <span>Skills</span></h2>
+        <div class="skills-list">
+            <div class="skill">
+                <h2>HTML</h2>
+                <p>Experienced in creating structured and semantic HTML documents.</p>
+            </div>
+            <div class="skill">
+                <h2>CSS</h2>
+                <p>Proficient in CSS, including modern layouts like Flexbox and Grid.</p>
+            </div>
+            <div class="skill">
+                <h2>JavaScript</h2>
+                <p>Skilled in JavaScript for creating dynamic and interactive web pages.</p>
+            </div>
+            <div class="skill">
+                <h2>React</h2>
+                <p>Familiar in building web pages using React and related technologies.</p>
+            </div>
+            <div class="skill">
+                <h2>Java</h2>
+                <p>Good knowlwdge of Java programming language.</p>
+            </div>
+            <div class="skill">
+                <h2>Python</h2>
+                <p>Familiar with Python programming language .</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="portfolio" id="portfolio">
+        <h2 class="sub-title">My <span>Projects</span></h2>
+        <div class="portfolio-list">
+            <div class="portfolio-item">
+                <img src="Screenshot (44).png" alt="Project 1">
+                <h2>Project One - Travelinc </h2>
+                <p>Designed and implemented a responsive travel website, Travel Inc, using HTML, CSS, and JavaScript.
+                    Created a visually appealing, user-friendly interface optimized for all devices.
+                    Integrated comprehensive travel guides, booking system, personalized recommendations, and user reviews.
+                    Developed Travel Inc website, resulting in enhanced user experience, increased engagement, streamlined booking processes, improved
+                    accessibility across devices, and expanded online reach</p><br>
+                <a href="https://github.com/Ankit-0712/travel.inc" class="github-link" target="_blank">GitHub Repo</a>
+            </div>
+            <div class="portfolio-item">
+                <img src="Screenshot (45).png" alt="Project 2">
+                <h2>Project Two - To do list</h2>
+                <p>To-Do List Web Page: A user-friendly tool for efficient task management. Features include task creation, priority levels, due dates, and a clean interface for improved productivity. Ideal for organizing daily activities and staying focused on priorities.</p><br>
+                <a href="https://github.com/Ankit-0712/to-do-list" class="github-link" target="_blank">GitHub Repo</a>
+            </div>
+    </section>
+
+    <section class="contact" id="contact">
+        <h2 class="sub-title">Contact <span>Me</span></h2>
+        <div class="contact-form">
+            <form action="https://api.web3forms.com/submit" method="POST">
+                <input type="hidden" name="access_key" value="a506975c-20ca-48bf-8c63-63908c64bd72">
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="email" name="email" placeholder="Your Email" required>
+                <textarea name="message" rows="8" placeholder="Your Message" required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
+    </section>
+   
+
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2024 Ankit Pant. All rights reserved.</p>
+            <div class="footer-social">
+                <a href="https://www.facebook.com/ankit.pant.927980" class="social-icon"><i class="bx bxl-facebook"></i></a>
+                <a href="https://www.instagram.com/_ankiiiittttt?igsh=MWtmNXk4ZXplemg4cA==" class="social-icon"><i class="bx bxl-instagram"></i></a>
+                <a href="https://www.linkedin.com/in/ankitpant7" class="social-icon"><i class="bx bxl-linkedin"></i></a>
+                <a href="https://github.com/Ankit-0712" class="social-icon"><i class="bx bxl-github"></i></a>
+            </div>
+        </div>
+    </footer>
+    
+    
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script>
+        var typed = new Typed(".text", {
+            strings: ["Web Developer", "Frontend Developer", "Backend Developer"],
+            typeSpeed: 100,
+            backSpeed: 100,
+            backDelay: 1000,
+            loop: true
+        });
+
+       // Select elements
+const dayNight = document.querySelector(".dayNight");
+const body = document.querySelector("body");
+const moonIcon = document.querySelector("ion-icon[name='moon-outline']");
+const sunnyIcon = document.querySelector("ion-icon[name='sunny-outline']");
+
+// Check for saved dark mode preference
+if (localStorage.getItem("dark-mode") === "enabled") {
+    body.classList.add("dark-mode");
+    moonIcon.style.display = 'none';
+    sunnyIcon.style.display = 'block';
+}
+
+// Add event listener to toggle button
+dayNight.addEventListener("click", () => {
+    const isDark = body.classList.toggle("dark-mode");
+
+    // Toggle icons visibility based on dark mode state
+    moonIcon.style.display = isDark ? 'none' : 'block';
+    sunnyIcon.style.display = isDark ? 'block' : 'none';
+
+    // Save dark mode preference
+    if (isDark) {
+        localStorage.setItem("dark-mode", "enabled");
+    } else {
+        localStorage.setItem("dark-mode", "disabled");
+    }
+});
+        
+       
+    </script>
+</body>
+</html>
