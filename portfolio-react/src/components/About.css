@@ -1,0 +1,306 @@
+.about {
+  background: #f8f9fa;
+  position: relative;
+}
+
+.App.dark .about {
+  background: #1a1a1a;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.section-title {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.App.dark .section-title {
+  color: #f5f5f5;
+}
+
+.section-subtitle {
+  font-size: 1.2rem;
+  color: #666;
+  font-weight: 400;
+}
+
+.App.dark .section-subtitle {
+  color: #ccc;
+}
+
+.about-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.about-description p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+  color: #555;
+}
+
+.App.dark .about-description p {
+  color: #ccc;
+}
+
+.about-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin: 3rem 0;
+}
+
+.stat-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.5rem;
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.App.dark .stat-item {
+  background: #2a2a2a;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.stat-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.App.dark .stat-item:hover {
+  box-shadow: 0 10px 25px rgba(255, 255, 255, 0.1);
+}
+
+.stat-icon {
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.stat-number {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #333;
+  margin: 0;
+}
+
+.App.dark .stat-number {
+  color: #f5f5f5;
+}
+
+.stat-label {
+  font-size: 0.9rem;
+  color: #666;
+  margin: 0;
+}
+
+.App.dark .stat-label {
+  color: #ccc;
+}
+
+.download-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 15px 30px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+}
+
+.download-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+  color: white;
+}
+
+.about-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.image-wrapper {
+  position: relative;
+  width: 400px;
+  height: 500px;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+.image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.image-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+  padding: 2rem;
+  color: white;
+  transform: translateY(100%);
+  transition: transform 0.3s ease;
+}
+
+.image-wrapper:hover .image-overlay {
+  transform: translateY(0);
+}
+
+.image-wrapper:hover img {
+  transform: scale(1.1);
+}
+
+.overlay-content h3 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.overlay-content p {
+  font-size: 1rem;
+  opacity: 0.9;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .about-content {
+    gap: 3rem;
+  }
+  
+  .image-wrapper {
+    width: 350px;
+    height: 450px;
+  }
+}
+
+@media (max-width: 768px) {
+  .section-header {
+    margin-bottom: 2rem;
+  }
+  
+  .about-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .about-text {
+    order: 2;
+  }
+
+  .about-image {
+    order: 1;
+  }
+
+  .about-stats {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .stat-item {
+    padding: 1rem;
+  }
+
+  .image-wrapper {
+    width: 300px;
+    height: 380px;
+  }
+
+  .section-title {
+    font-size: 2.5rem;
+  }
+
+  .about-description p {
+    font-size: 1rem;
+  }
+
+  .download-btn {
+    padding: 12px 25px;
+    font-size: 0.9rem;
+    width: 100%;
+    max-width: 200px;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .section-header {
+    margin-bottom: 1.5rem;
+  }
+  
+  .about-content {
+    gap: 1.5rem;
+  }
+
+  .image-wrapper {
+    width: 250px;
+    height: 320px;
+  }
+
+  .section-title {
+    font-size: 2rem;
+  }
+
+  .section-subtitle {
+    font-size: 1rem;
+  }
+
+  .about-description p {
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+  }
+
+  .stat-item {
+    padding: 0.8rem;
+  }
+
+  .stat-icon {
+    width: 40px;
+    height: 40px;
+  }
+
+  .stat-number {
+    font-size: 1.5rem;
+  }
+
+  .stat-label {
+    font-size: 0.8rem;
+  }
+
+  .download-btn {
+    padding: 10px 20px;
+    font-size: 0.85rem;
+  }
+
+  .overlay-content h3 {
+    font-size: 1.2rem;
+  }
+
+  .overlay-content p {
+    font-size: 0.9rem;
+  }
+} 
