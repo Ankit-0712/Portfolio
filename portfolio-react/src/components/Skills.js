@@ -13,6 +13,26 @@ const Skills = () => {
     triggerOnce: true
   });
 
+  // Debug logging for mobile
+  React.useEffect(() => {
+    console.log('Skills component mounted');
+    console.log('InView status:', inView);
+  }, [inView]);
+
+  // Ensure component renders even if animations fail
+  const [hasError, setHasError] = React.useState(false);
+  
+  React.useEffect(() => {
+    // Fallback if component doesn't render within 3 seconds
+    const timer = setTimeout(() => {
+      if (!inView) {
+        setHasError(true);
+      }
+    }, 3000);
+    
+    return () => clearTimeout(timer);
+  }, [inView]);
+
   const skills = [
     {
       icon: SiHtml5,
@@ -101,13 +121,41 @@ const Skills = () => {
     }
   ];
 
+  // Fallback render method for mobile
+  const renderFallbackSkills = () => (
+    <div className="skills-grid">
+      {skills.map((skill, index) => {
+        const SkillIcon = skill.icon;
+        return (
+          <div
+            key={skill.name}
+            className="skill-card"
+            style={{ 
+              minHeight: '200px',
+              opacity: 1,
+              transform: 'translateY(0)'
+            }}
+          >
+            <div className="skill-icon" style={{ color: skill.color }}>
+              <SkillIcon size={40} />
+            </div>
+            
+            <h3 className="skill-name">{skill.name}</h3>
+            
+            <p className="skill-description">{skill.description}</p>
+          </div>
+        );
+      })}
+    </div>
+  );
+
   return (
     <section id="skills" className="skills" ref={ref}>
       <div className="container">
         <motion.div
           className="section-header"
           initial={{ opacity: 0, y: 30 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
+          animate={inView ? { opacity: 1, y: 0 } : { opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
           <h2 className="section-title">
@@ -118,41 +166,49 @@ const Skills = () => {
           </p>
         </motion.div>
 
-        <div className="skills-grid">
-          {skills.map((skill, index) => (
-            <motion.div
-              key={skill.name}
-              className="skill-card"
-              initial={{ opacity: 0, y: 50 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              whileHover={{ y: -10 }}
-            >
-              <div className="skill-icon" style={{ color: skill.color }}>
-                <skill.icon size={40} />
-              </div>
-              
-              <h3 className="skill-name">{skill.name}</h3>
-              
-              <p className="skill-description">{skill.description}</p>
-              
-              {!skill.noProgress && (
-                <div className="skill-progress">
-                  <div className="progress-bar">
-                    <motion.div
-                      className="progress-fill"
-                      initial={{ width: 0 }}
-                      animate={inView ? { width: `${skill.level}%` } : {}}
-                      transition={{ duration: 1, delay: 0.5 + index * 0.1 }}
-                      style={{ backgroundColor: skill.color }}
-                    />
+        {hasError ? (
+          renderFallbackSkills()
+        ) : (
+          <div className="skills-grid">
+            {skills.map((skill, index) => {
+              const SkillIcon = skill.icon;
+              return (
+                <motion.div
+                  key={skill.name}
+                  className="skill-card"
+                  initial={{ opacity: 0, y: 50 }}
+                  animate={inView ? { opacity: 1, y: 0 } : { opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  whileHover={{ y: -10 }}
+                  style={{ minHeight: '200px' }}
+                >
+                  <div className="skill-icon" style={{ color: skill.color }}>
+                    <SkillIcon size={40} />
                   </div>
-                  <span className="progress-text">{skill.level}%</span>
-                </div>
-              )}
-            </motion.div>
-          ))}
-        </div>
+                  
+                  <h3 className="skill-name">{skill.name}</h3>
+                  
+                  <p className="skill-description">{skill.description}</p>
+                  
+                  {!skill.noProgress && (
+                    <div className="skill-progress">
+                      <div className="progress-bar">
+                        <motion.div
+                          className="progress-fill"
+                          initial={{ width: 0 }}
+                          animate={inView ? { width: `${skill.level}%` } : { width: '0%' }}
+                          transition={{ duration: 1, delay: 0.5 + index * 0.1 }}
+                          style={{ backgroundColor: skill.color }}
+                        />
+                      </div>
+                      <span className="progress-text">{skill.level}%</span>
+                    </div>
+                  )}
+                </motion.div>
+              );
+            })}
+          </div>
+        )}
       </div>
     </section>
   );
