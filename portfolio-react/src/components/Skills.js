@@ -4,7 +4,28 @@ import { useInView } from 'react-intersection-observer';
 import { 
   FiCode, FiDatabase, FiGlobe, FiServer
 } from 'react-icons/fi';
-import { SiHtml5, SiCss3, SiNextdotjs, SiAngular, SiTailwindcss, SiTypescript, SiMysql, SiPostgresql } from 'react-icons/si';
+import { 
+  SiHtml5,
+  SiCss3,
+  SiNextdotjs,
+  SiAngular,
+  SiTailwindcss,
+  SiTypescript,
+  SiMysql,
+  SiPostgresql,
+  SiSpring,
+  SiSpringboot,
+  SiPostman,
+  SiHibernate,
+  SiFirebase,
+  SiJasmine,
+  SiMocha,
+  SiApachemaven,
+  SiGradle,
+  SiGit,
+  SiSass,
+  SiMongodb
+} from 'react-icons/si';
 import './Skills.css';
 
 const Skills = () => {
@@ -12,12 +33,6 @@ const Skills = () => {
     threshold: 0.3,
     triggerOnce: true
   });
-
-  // Debug logging for mobile
-  React.useEffect(() => {
-    console.log('Skills component mounted');
-    console.log('InView status:', inView);
-  }, [inView]);
 
   // Ensure component renders even if animations fail
   const [hasError, setHasError] = React.useState(false);
@@ -33,115 +48,204 @@ const Skills = () => {
     return () => clearTimeout(timer);
   }, [inView]);
 
-  const skills = [
+  const skillCategories = [
     {
-      icon: SiHtml5,
-      name: 'HTML',
-      description: 'Experienced in creating structured and semantic HTML documents.',
-      color: '#e34c26',
-      noProgress: true
-    },
-    {
-      icon: SiCss3,
-      name: 'CSS',
-      description: 'Proficient in CSS, including modern layouts like Flexbox and Grid.',
-      color: '#2196f3',
-      noProgress: true
-    },
-    {
-      icon: FiCode,
-      name: 'JavaScript',
-      description: 'Skilled in JavaScript for creating dynamic and interactive web pages.',
-      color: '#f7dc6f',
-      noProgress: true
-    },
-    {
+      key: 'frontend',
+      title: 'Frontend',
       icon: FiGlobe,
-      name: 'React',
-      description: 'Familiar in building web pages using React and related technologies.',
-      color: '#61dbfb',
-      noProgress: true
+      skills: [
+        {
+          icon: SiHtml5,
+          name: 'HTML',
+          description: 'Semantic, accessible markup for modern, SEO-friendly pages.',
+          color: '#e34c26'
+        },
+        {
+          icon: SiCss3,
+          name: 'CSS',
+          description: 'Responsive layouts with Flexbox, Grid, and modern CSS features.',
+          color: '#2196f3'
+        },
+        {
+          icon: FiCode,
+          name: 'JavaScript',
+          description: 'Interactive UIs, API calls, and state management in the browser.',
+          color: '#f7dc6f'
+        },
+        {
+          icon: FiGlobe,
+          name: 'React',
+          description: 'Component-based SPAs, hooks, and performance-conscious UI patterns.',
+          color: '#61dbfb'
+        },
+        {
+          icon: SiNextdotjs,
+          name: 'Next.js',
+          description: 'SEO-friendly React apps with SSR/SSG and API routes.',
+          color: '#000'
+        },
+        {
+          icon: SiAngular,
+          name: 'Angular',
+          description: 'Scalable frontends using modules, components, and RxJS.',
+          color: '#dd0031'
+        },
+        {
+          icon: SiTailwindcss,
+          name: 'Tailwind CSS',
+          description: 'Fast UI building with utility-first CSS and design systems.',
+          color: '#38bdf8'
+        },
+        {
+          icon: SiTypescript,
+          name: 'TypeScript',
+          description: 'Type-safe React/JS codebases with better DX and fewer bugs.',
+          color: '#3178c6'
+        },
+        {
+          icon: SiSass,
+          name: 'SCSS / SASS',
+          description: 'Modular, maintainable styles with variables, mixins, and partials.',
+          color: '#cc6699'
+        }
+      ]
     },
     {
+      key: 'backend',
+      title: 'Backend & Databases',
       icon: FiServer,
-      name: 'Java',
-      description: 'Experienced in developing robust and scalable applications using Java.',
-      color: '#b07219',
-      noProgress: true
+      skills: [
+        {
+          icon: FiServer,
+          name: 'Java',
+          description: 'Robust backend services and business logic with Java.',
+          color: '#b07219'
+        },
+        {
+          icon: SiSpring,
+          name: 'Spring',
+          description: 'Enterprise-grade Java apps with Spring Core, DI, and MVC.',
+          color: '#6db33f'
+        },
+        {
+          icon: SiSpringboot,
+          name: 'Spring Boot',
+          description: 'Production-ready REST APIs and microservices with Spring Boot.',
+          color: '#6db33f'
+        },
+        {
+          icon: SiHibernate,
+          name: 'Hibernate',
+          description: 'ORM mapping, relations, and efficient data access.',
+          color: '#59666c'
+        },
+        {
+          icon: FiDatabase,
+          name: 'JPA',
+          description: 'Clean repository patterns and entity models using JPA.',
+          color: '#7c3aed'
+        },
+        {
+          icon: FiDatabase,
+          name: 'Python',
+          description: 'APIs, scripting, and ML/DS workflows in Python.',
+          color: '#3572a5'
+        },
+        {
+          icon: SiMysql,
+          name: 'MySQL',
+          description: 'Relational schema design, queries, and optimization.',
+          color: '#00758f'
+        },
+        {
+          icon: SiPostgresql,
+          name: 'PostgreSQL',
+          description: 'Advanced SQL features and reliable data storage.',
+          color: '#336791'
+        },
+        {
+          icon: SiMongodb,
+          name: 'MongoDB',
+          description: 'Document databases for flexible, schema-less data.',
+          color: '#10aa50'
+        },
+        {
+          icon: SiFirebase,
+          name: 'Firebase',
+          description: 'Auth, Firestore, and hosting for full-stack experiences.',
+          color: '#ffca28'
+        }
+      ]
     },
     {
+      key: 'tools',
+      title: 'DevOps & Tools',
       icon: FiDatabase,
-      name: 'Python',
-      description: 'Skilled in Python for data analysis, machine learning, and automation.',
-      color: '#3572a5',
-      noProgress: true
-    },
-  
-    {
-      icon: SiNextdotjs,
-      name: 'Next.js',
-      description: 'Building fast, SEO-friendly React apps with Next.js.',
-      color: '#000',
-      noProgress: true
-    },
-    {
-      icon: SiAngular,
-      name: 'Angular',
-      description: 'Developing scalable web apps with Angular.',
-      color: '#dd0031',
-      noProgress: true
-    },
-    {
-      icon: SiTailwindcss,
-      name: 'Tailwind CSS',
-      description: 'Rapid UI development with Tailwind CSS utility classes.',
-      color: '#38bdf8',
-      noProgress: true
-    },
-    {
-      icon: SiTypescript,
-      name: 'TypeScript',
-      description: 'Type-safe JavaScript development with TypeScript.',
-      color: '#3178c6',
-      noProgress: true
+      skills: [
+        {
+          icon: SiGit,
+          name: 'Git',
+          description: 'Version control, branching strategies, and collaboration.',
+          color: '#f05032'
+        },
+        {
+          icon: SiApachemaven,
+          name: 'Maven',
+          description: 'Java dependency management and repeatable builds.',
+          color: '#c71a36'
+        },
+        {
+          icon: SiGradle,
+          name: 'Gradle',
+          description: 'Flexible build automation for Java and Android.',
+          color: '#02303a'
+        },
+        {
+          icon: SiPostman,
+          name: 'Postman',
+          description: 'Designing, testing, and automating REST APIs.',
+          color: '#ff6c37'
+        }
+      ]
     },
     {
-      icon: SiMysql,
-      name: 'MySQL',
-      description: 'Experience with MySQL relational databases.',
-      color: '#00758f',
-      noProgress: true
-    },
-    {
-      icon: SiPostgresql,
-      name: 'PostgreSQL',
-      description: 'Experience with PostgreSQL relational databases.',
-      color: '#336791',
-      noProgress: true
+      key: 'testing',
+      title: 'Testing',
+      icon: FiCode,
+      skills: [
+        {
+          icon: SiJasmine,
+          name: 'Jasmine',
+          description: 'Unit testing and specs for Angular/JavaScript apps.',
+          color: '#8a4182'
+        },
+        {
+          icon: SiMocha,
+          name: 'Mocha',
+          description: 'Asynchronous JS testing with Mocha-based setups.',
+          color: '#8d6748'
+        }
+      ]
     }
   ];
+
+  const flatSkills = skillCategories.flatMap((category) => category.skills);
 
   // Fallback render method for mobile
   const renderFallbackSkills = () => (
     <div className="skills-grid">
-      {skills.map((skill, index) => {
+      {flatSkills.map((skill) => {
         const SkillIcon = skill.icon;
         return (
           <div
             key={skill.name}
             className="skill-card"
-            style={{ 
-              minHeight: '200px',
-              opacity: 1,
-              transform: 'translateY(0)'
-            }}
+            style={{ minHeight: '200px' }}
           >
             <div className="skill-icon" style={{ color: skill.color }}>
-              <SkillIcon size={40} />
+              <SkillIcon size={32} />
             </div>
-            
-            <h3 className="skill-name">{skill.name}</h3>
-            
+            <h4 className="skill-name">{skill.name}</h4>
             <p className="skill-description">{skill.description}</p>
           </div>
         );
@@ -170,7 +274,7 @@ const Skills = () => {
           renderFallbackSkills()
         ) : (
           <div className="skills-grid">
-            {skills.map((skill, index) => {
+            {flatSkills.map((skill, index) => {
               const SkillIcon = skill.icon;
               return (
                 <motion.div
@@ -185,25 +289,8 @@ const Skills = () => {
                   <div className="skill-icon" style={{ color: skill.color }}>
                     <SkillIcon size={40} />
                   </div>
-                  
                   <h3 className="skill-name">{skill.name}</h3>
-                  
                   <p className="skill-description">{skill.description}</p>
-                  
-                  {!skill.noProgress && (
-                    <div className="skill-progress">
-                      <div className="progress-bar">
-                        <motion.div
-                          className="progress-fill"
-                          initial={{ width: 0 }}
-                          animate={inView ? { width: `${skill.level}%` } : { width: '0%' }}
-                          transition={{ duration: 1, delay: 0.5 + index * 0.1 }}
-                          style={{ backgroundColor: skill.color }}
-                        />
-                      </div>
-                      <span className="progress-text">{skill.level}%</span>
-                    </div>
-                  )}
                 </motion.div>
               );
             })}

@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { FiGithub, FiExternalLink, FiCode, FiGlobe } from 'react-icons/fi';
+import { SiNextdotjs, SiAngular, SiTailwindcss, SiFirebase, SiPython, SiFlask, SiAndroidstudio } from 'react-icons/si';
 import mockAiImage from '../Screenshot (86).png';
 import fitzoneImage from '../Screenshot (85).png';
 import moviesImage from '../movies.jpeg';
@@ -56,6 +57,18 @@ const Projects = () => {
       category: 'Healthcare AI'
     }
   ];
+
+  const techIconMap = {
+    'Next.js': SiNextdotjs,
+    'Angular': SiAngular,
+    'Tailwind CSS': SiTailwindcss,
+    'Firebase': SiFirebase,
+    // Java doesn’t have a dedicated devicon in react-icons/si; fall back to Python icon style
+    'Java': SiPython,
+    'Python': SiPython,
+    'Flask': SiFlask,
+    'Android Studio': SiAndroidstudio
+  };
 
   return (
     <section id="projects" className="projects" ref={ref}>
@@ -119,7 +132,11 @@ const Projects = () => {
               <div className="project-technologies">
                 {project.technologies.map((tech, techIndex) => (
                   <span key={techIndex} className="tech-tag">
-                    {tech}
+                    {(() => {
+                      const TechIcon = techIconMap[tech];
+                      return TechIcon ? <TechIcon className="tech-tag-icon" /> : null;
+                    })()}
+                    <span>{tech}</span>
                   </span>
                 ))}
               </div>

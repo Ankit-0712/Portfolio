@@ -17,6 +17,13 @@ const About = () => {
     { icon: FiTarget, number: '100%', label: 'Client Satisfaction' }
   ];
 
+  const highlights = [
+    'Clean, responsive UI that works beautifully on mobile and desktop.',
+    'Building full-stack apps with modern React, Next.js, Angular, and Java backends.',
+    'API design, integration, and data modelling that keep projects maintainable.',
+    'Strong focus on performance, readability, and long-term code quality.'
+  ];
+
   return (
     <section id="about" className="about" ref={ref}>
       <div className="container">
@@ -51,6 +58,22 @@ const About = () => {
               <p>
                 I'm excited about the opportunity to leverage my skills and expertise to contribute to innovative projects and make a meaningful impact in the world of web development.
               </p>
+
+              <motion.div
+                className="about-highlights-wrapper"
+                initial={{ opacity: 0, y: 20 }}
+                animate={inView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.6, delay: 0.4 }}
+              >
+                <h3 className="about-highlights-title">What I&apos;m good at</h3>
+                <ul className="about-highlights">
+                  {highlights.map((item) => (
+                    <li key={item} className="about-highlight-item">
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </motion.div>
             </div>
 
             <motion.div

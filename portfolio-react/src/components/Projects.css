@@ -166,6 +166,9 @@
 }
 
 .tech-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
   padding: 4px 12px;
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   color: #fff;
@@ -173,6 +176,10 @@
   font-size: 0.85rem;
   font-weight: 500;
   border: none;
+}
+
+.tech-tag-icon {
+  font-size: 0.95rem;
 }
 
 .project-actions {

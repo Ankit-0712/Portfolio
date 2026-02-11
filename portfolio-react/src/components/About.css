@@ -50,6 +50,50 @@
   color: #ccc;
 }
 
+.about-highlights-wrapper {
+  margin-top: 1.5rem;
+}
+
+.about-highlights-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 0.8rem;
+  color: #333;
+}
+
+.App.dark .about-highlights-title {
+  color: #f5f5f5;
+}
+
+.about-highlights {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.about-highlight-item {
+  position: relative;
+  padding-left: 1.4rem;
+  font-size: 0.98rem;
+  color: #555;
+}
+
+.about-highlight-item::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  top: 0.1rem;
+  font-size: 1.2rem;
+  color: #667eea;
+}
+
+.App.dark .about-highlight-item {
+  color: #ccc;
+}
+
 .about-stats {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
